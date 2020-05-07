@@ -1,0 +1,9 @@
+relax:
+  course:
+    index: relax_course
+    type: doc
+    source_field: id,name,grade,first_level_tag,second_level_tag,charge,valid,pic,qq,price,price_old,status,study_model,teach_mode,expires,pub_time,start_time,end_time
+  media:
+    index:
+    type:
+    source_field:
