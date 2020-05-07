@@ -1,4 +1,4 @@
-package com.relaxframework.model.search;
+package com.relax.framework.model.search;
 
 import lombok.Data;
 import lombok.ToString;

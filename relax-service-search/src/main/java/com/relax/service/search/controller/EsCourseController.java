@@ -1,9 +1,10 @@
 package com.relax.service.search.controller;
 
 import com.relax.framework.model.response.QueryResponseResult;
+import com.relax.framework.model.search.CourseSearchParam;
 import com.relax.service.api.search.EsCourseControllerApi;
 import com.relax.service.search.service.EsCourseService;
-import com.relaxframework.model.course.CoursePub;
+import com.relax.framework.model.course.CoursePub;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +24,7 @@ public class EsCourseController implements EsCourseControllerApi {
     EsCourseService esCourseService;
 
     @Override
-    public QueryResponseResult<CoursePub> queryAllCoursePub(Integer pageNum, Integer pageSize, com.relaxframework.model.search.CourseSearchParam courseSearchParam) {
+    public QueryResponseResult<CoursePub> queryAllCoursePub(Integer pageNum, Integer pageSize, CourseSearchParam courseSearchParam) {
         return null;
     }
 

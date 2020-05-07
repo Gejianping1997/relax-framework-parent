@@ -1,4 +1,4 @@
-package com.relaxframework.model;
+package com.relax.framework.model;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

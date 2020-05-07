@@ -1,4 +1,4 @@
-package com.relaxframework.model;
+package com.relax.framework.model;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

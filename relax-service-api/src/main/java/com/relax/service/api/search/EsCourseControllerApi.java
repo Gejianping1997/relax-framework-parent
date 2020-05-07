@@ -1,8 +1,8 @@
 package com.relax.service.api.search;
 
 import com.relax.framework.model.response.QueryResponseResult;
-import com.relaxframework.model.course.CoursePub;
-import com.relaxframework.model.search.CourseSearchParam;
+import com.relax.framework.model.course.CoursePub;
+import com.relax.framework.model.search.CourseSearchParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
