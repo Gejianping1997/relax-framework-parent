@@ -1,4 +1,4 @@
-package com.relax.service.learning;
+package com.relax.service.search;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,8 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2020/5/7 14:32
  */
 @SpringBootApplication
-public class RelaxServiceLearningApplication {
+public class RelaxServiceSearchApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(RelaxServiceLearningApplication.class, args);
+        SpringApplication.run(RelaxServiceSearchApplication.class, args);
     }
+
 }

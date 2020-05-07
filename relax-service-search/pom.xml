@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.relax</groupId>
-    <artifactId>relax-framework-api</artifactId>
+    <artifactId>relax-service-search</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>relax-framework-api</name>
+    <name>relax-service-search</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -19,18 +19,6 @@
     </properties>
 
     <dependencies>
-        <!---->
-        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-        </dependency>
-        <!---->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
