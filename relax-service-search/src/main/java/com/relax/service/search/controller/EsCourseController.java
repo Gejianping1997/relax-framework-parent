@@ -6,9 +6,10 @@ import com.relax.service.api.search.EsCourseControllerApi;
 import com.relax.service.search.service.EsCourseService;
 import com.relax.framework.model.course.CoursePub;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
@@ -17,7 +18,8 @@ import java.util.Map;
  * @version 1.0
  * @date 2020/5/7 16:48
  */
-@Controller
+@RestController
+@RequestMapping("/search/course")
 public class EsCourseController implements EsCourseControllerApi {
 
     @Autowired
@@ -29,8 +31,8 @@ public class EsCourseController implements EsCourseControllerApi {
     }
 
     @Override
-    @GetMapping("/getAll/{id}")
-    public Map<String, CoursePub> queryAllCoursePubByCourseId(@PathVariable("id") String courseId) {
+    @GetMapping("/queryAllCoursePubByCourseId/{courseId}")
+    public Map<String, CoursePub> queryAllCoursePubByCourseId(@PathVariable("courseId") String courseId) {
         return esCourseService.queryAllCoursePubByCourseId(courseId);
     }
 }

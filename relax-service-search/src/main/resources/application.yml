@@ -1,4 +1,11 @@
+server:
+  port: ${SERVER_PORT:40100}
+spring:
+  application:
+    name: relax-search-service
 relax:
+  elasticsearch:
+    hostList: ${ES_HOST_PORT_LIST:127.0.0.1:9200} #多个结点中间用逗号分隔
   course:
     index: relax_course
     type: doc
