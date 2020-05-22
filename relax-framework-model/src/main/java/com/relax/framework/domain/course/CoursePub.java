@@ -1,4 +1,4 @@
-package com.relax.framework.model.course;
+package com.relax.framework.domain.course;
 
 import lombok.Data;
 import lombok.ToString;

@@ -1,4 +1,4 @@
-package com.relax.framework.model.response;
+package com.relax.framework.domain.response;
 
 import lombok.ToString;
 

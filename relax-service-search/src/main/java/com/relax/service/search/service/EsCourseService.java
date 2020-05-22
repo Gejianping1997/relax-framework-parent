@@ -1,6 +1,6 @@
 package com.relax.service.search.service;
 
-import com.relax.framework.model.course.CoursePub;
+import com.relax.framework.domain.course.CoursePub;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RestHighLevelClient;
