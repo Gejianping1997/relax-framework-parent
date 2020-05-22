@@ -10,9 +10,9 @@ import com.relax.framework.model.response.QueryResponseResult;
  */
 public interface CmsPageControllerApi {
     /** 查询所有CmsPage列表的数据源
-     * @param page 请求第几页的数据
-     * @param size 请求的每页的数据是多少
+     * @param pageNum 请求第几页的数据
+     * @param pageSize 请求的每页的数据是多少
      * @param queryPageRequest 页面请求所附带的条件
      * @return */
-    QueryResponseResult queryAllCmsPageList(Integer page, Integer size, QueryPageRequest queryPageRequest);
+    QueryResponseResult queryAllCmsPageList(Integer pageNum, Integer pageSize, QueryPageRequest queryPageRequest);
 }

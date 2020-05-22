@@ -5,5 +5,5 @@ spring:
     name: relax-service-manage-cms
   data:
     mongodb:
-      uri: mongodb://admin:admin@localhost:27017
+      uri: mongodb://admin:admin@49.234.29.46:27017
       database: relax_database_for_mongodb
