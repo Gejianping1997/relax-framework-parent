@@ -11,6 +11,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @version 1.0
  * @date 2020/5/7 16:31
  */
+@EnableSwagger2
 @SpringBootApplication
 @EntityScan("com.relax.framework.domain.cms")
 @ComponentScan(basePackages = {"com.relax.service.api"})

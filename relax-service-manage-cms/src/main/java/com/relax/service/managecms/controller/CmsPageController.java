@@ -24,7 +24,7 @@ public class CmsPageController implements CmsPageControllerApi {
 
     @Override
     @GetMapping("/queryAllCmsPageList/{pageNum}/{pageSize}")
-    public QueryResponseResult queryAllCmsPageList(@PathVariable("pageNum") Integer pageNum,@PathVariable("pageSize") Integer pageSize, QueryPageRequest queryPageRequest) {
+    public QueryResponseResult queryAllCmsPageList(@PathVariable("pageNum") int pageNum,@PathVariable("pageSize") int pageSize, QueryPageRequest queryPageRequest) {
         return pageService.queryAllCmsPageList(pageNum,pageSize,queryPageRequest);
     }
 }

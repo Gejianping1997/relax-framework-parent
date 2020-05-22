@@ -19,5 +19,10 @@ public interface CmsPageControllerApi {
      * @param pageSize 请求的每页的数据是多少
      * @param queryPageRequest 页面请求所附带的条件
      * @return */
-    QueryResponseResult queryAllCmsPageList(Integer pageNum, Integer pageSize, QueryPageRequest queryPageRequest);
+    @ApiOperation("分页查询页面列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name="pageNum",value = "页码",required=true,paramType="path",dataType="int"),
+            @ApiImplicitParam(name="pageSize",value = "每页记录数",required=true,paramType="path",dataType="int")
+    })
+    QueryResponseResult queryAllCmsPageList(int pageNum, int pageSize, QueryPageRequest queryPageRequest);
 }
