@@ -1,0 +1,9 @@
+server:
+  port: 31001
+spring:
+  application:
+    name: relax-service-manage-cms
+  data:
+    mongodb:
+      uri: mongodb://admin:admin@localhost:27017
+      database: relax_database_for_mongodb

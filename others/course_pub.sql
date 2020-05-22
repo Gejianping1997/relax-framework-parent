@@ -4,7 +4,7 @@ Navicat MySQL Data Transfer
 Source Server         : 49.234.29.46
 Source Server Version : 50562
 Source Host           : 49.234.29.46:3306
-Source Database       : relax
+Source Database       : relax_database_for_mysql
 
 Target Server Type    : MYSQL
 Target Server Version : 50562
