@@ -1,6 +1,6 @@
 package com.relax.service.search.controller;
 
-import com.relax.framework.domain.response.QueryResponseResult;
+import com.relax.framework.model.response.QueryResponseResult;
 import com.relax.framework.domain.search.CourseSearchParam;
 import com.relax.service.api.search.EsCourseControllerApi;
 import com.relax.service.search.service.EsCourseService;

@@ -1,4 +1,4 @@
-package com.relax.framework.domain.response;
+package com.relax.framework.model.response;
 
 /**
  * @author Gejianping

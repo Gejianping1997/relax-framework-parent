@@ -1,7 +1,7 @@
 package com.relax.service.api.cms;
 
 import com.relax.framework.domain.cms.request.QueryPageRequest;
-import com.relax.framework.domain.response.QueryResponseResult;
+import com.relax.framework.model.response.QueryResponseResult;
 
 /**
  * @author Gejianping

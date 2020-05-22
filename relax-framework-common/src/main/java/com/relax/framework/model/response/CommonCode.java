@@ -1,4 +1,4 @@
-package com.relax.framework.domain.response;
+package com.relax.framework.model.response;
 
 import lombok.ToString;
 
@@ -8,7 +8,7 @@ import lombok.ToString;
  * @date 2020/5/7 15:10
  */
 @ToString
-public enum CommonCode implements ResultCode{
+public enum CommonCode implements ResultCode {
 
     INVALID_PARAM(false,10003,"参数非法!"),
     SUCCESS(true,10000,"操作成功！"),

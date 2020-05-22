@@ -1,6 +1,6 @@
 package com.relax.framework.domain.cms.request;
 
-import com.relax.framework.domain.response.RequestData;
+import com.relax.framework.model.request.RequestData;
 import lombok.Data;
 
 /**
