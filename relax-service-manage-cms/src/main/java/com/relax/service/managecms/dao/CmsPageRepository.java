@@ -17,4 +17,11 @@ public interface CmsPageRepository extends MongoRepository<CmsPage,String> {
      * @return
      */
     CmsPage findAllByPageNameAndSiteIdAndPageWebPath(String pageName,String siteId,String pageWebPath);
+
+    /**
+     * 使用默认方法 根据页面id删除页面
+     * @param pageId
+     * @return
+     */
+    CmsPage deleteCmsPageByPageId(String pageId);
 }

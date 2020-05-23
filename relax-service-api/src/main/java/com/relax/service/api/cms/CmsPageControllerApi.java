@@ -35,4 +35,20 @@ public interface CmsPageControllerApi {
      */
     @ApiOperation("添加页面")
     CmsPageResult insertCmsPage(CmsPage cmsPage);
+
+    /**
+     * 修改页面
+     * @param cmsPage 要修改的页面的详细信息
+     * @return
+     */
+    @ApiOperation("修改页面")
+    CmsPageResult updateCmsPage(CmsPage cmsPage);
+
+    /**
+     * 删除页面
+     * @param cmsPage 要删除的页面的详细信息
+     * @return
+     */
+    @ApiOperation("修改页面")
+    CmsPageResult deleteCmsPageById(CmsPage cmsPage);
 }

@@ -33,4 +33,16 @@ public class CmsPageController implements CmsPageControllerApi {
     public CmsPageResult insertCmsPage(@RequestBody CmsPage cmsPage) {
         return cmsPageService.insertCmsPage(cmsPage);
     }
+
+    @Override
+    @PostMapping("/updateCmsPage")
+    public CmsPageResult updateCmsPage(@RequestBody CmsPage cmsPage) {
+        return cmsPageService.updateCmsPage(cmsPage);
+    }
+
+    @Override
+    @PostMapping("/deleteCmsPageById")
+    public CmsPageResult deleteCmsPageById(@RequestBody CmsPage cmsPage) {
+         return cmsPageService.deleteCmsPageById(cmsPage);
+    }
 }

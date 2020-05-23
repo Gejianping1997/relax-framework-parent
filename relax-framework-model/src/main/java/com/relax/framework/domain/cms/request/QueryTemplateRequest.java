@@ -5,8 +5,8 @@ import com.relax.framework.model.request.RequestData;
 /**
  * @author Gejianping
  * @version 0.0.1
- * @date 2020/05/23 10:00:
+ * @date 2020/05/23 14:52:
  */
-public class QuerySiteRequest extends RequestData {
-    /** 查询 站点信息 时所附带的各种查询条件 */
+public class QueryTemplateRequest extends RequestData {
+    /** 查询 页面模板 时所附带的各种查询条件 */
 }

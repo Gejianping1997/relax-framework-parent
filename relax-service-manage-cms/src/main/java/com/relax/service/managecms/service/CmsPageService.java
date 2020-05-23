@@ -7,10 +7,10 @@ import com.relax.framework.model.response.CommonCode;
 import com.relax.framework.model.response.QueryResponseResult;
 import com.relax.framework.model.response.QueryResult;
 import com.relax.service.managecms.dao.CmsPageRepository;
-import jdk.nashorn.internal.runtime.options.Option;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -70,7 +70,7 @@ public class CmsPageService {
             pageSize = 10;
         }
 
-        Pageable pageable = PageRequest.of(pageNum,pageSize);
+        Pageable pageable = PageRequest.of(pageNum,pageSize,Sort.Direction.DESC,"pageName");
         Page<CmsPage> cmsPages = cmsPageRepository.findAll(example,pageable);
 
         QueryResult<CmsPage> queryResult = new QueryResult<CmsPage>();
@@ -92,5 +92,16 @@ public class CmsPageService {
         }
         cmsPageRepository.insert(cmsPage);
         return new CmsPageResult(CommonCode.SUCCESS,cmsPageRepository.findAllByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(),cmsPage.getSiteId(),cmsPage.getPageWebPath()));
+    }
+
+    public CmsPageResult updateCmsPage(CmsPage cmsPage){
+        cmsPageRepository.delete(cmsPageRepository.findAllByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(),cmsPage.getSiteId(),cmsPage.getPageWebPath()));
+        cmsPageRepository.save(cmsPage);
+        return new CmsPageResult(CommonCode.SUCCESS,cmsPage);
+    }
+
+    public CmsPageResult deleteCmsPageById(CmsPage cmsPage){
+        cmsPageRepository.deleteCmsPageByPageId(cmsPage.getPageId());
+        return new CmsPageResult(CommonCode.SUCCESS,cmsPage);
     }
 }
