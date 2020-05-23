@@ -2,7 +2,9 @@ package com.relax.service.managecms.service;
 
 import com.relax.framework.domain.cms.CmsPage;
 import com.relax.framework.domain.cms.request.QueryPageRequest;
+import com.relax.framework.domain.cms.response.CmsCode;
 import com.relax.framework.domain.cms.response.CmsPageResult;
+import com.relax.framework.exception.ExceptionCast;
 import com.relax.framework.model.response.CommonCode;
 import com.relax.framework.model.response.QueryResponseResult;
 import com.relax.framework.model.response.QueryResult;
@@ -88,7 +90,8 @@ public class CmsPageService {
         cmsPage.setPageId("");
         CmsPage cmsPageExist = cmsPageRepository.findAllByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(),cmsPage.getSiteId(),cmsPage.getPageWebPath());
         if (cmsPageExist != null){
-            return new CmsPageResult(CommonCode.FAIL,null);
+            /** 校验页面是否存在,若已存在则抛出异常 */
+            ExceptionCast.cast(CmsCode.CMS_ADDPAGE_EXISTS);
         }
         cmsPageRepository.insert(cmsPage);
         return new CmsPageResult(CommonCode.SUCCESS,cmsPageRepository.findAllByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(),cmsPage.getSiteId(),cmsPage.getPageWebPath()));

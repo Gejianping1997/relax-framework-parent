@@ -16,6 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EntityScan("com.relax.framework.domain.cms")
 @ComponentScan(basePackages = {"com.relax.service.api"})
 @ComponentScan(basePackages = {"com.relax.service.managecms"})
+@ComponentScan(basePackages="com.relax.framework")
 public class RelaxServiceManageCmsApplication {
 
     public static void main(String[] args) {
