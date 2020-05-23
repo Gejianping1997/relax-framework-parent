@@ -85,11 +85,12 @@ public class CmsPageService {
     }
 
     public CmsPageResult insertCmsPage(CmsPage cmsPage){
-        Optional<CmsPage> cmsPageExist = cmsPageRepository.findOne(Example.of(cmsPage));
+        cmsPage.setPageId("");
+        CmsPage cmsPageExist = cmsPageRepository.findAllByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(),cmsPage.getSiteId(),cmsPage.getPageWebPath());
         if (cmsPageExist != null){
             return new CmsPageResult(CommonCode.FAIL,null);
         }
         cmsPageRepository.insert(cmsPage);
-        return new CmsPageResult(CommonCode.SUCCESS,cmsPage);
+        return new CmsPageResult(CommonCode.SUCCESS,cmsPageRepository.findAllByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(),cmsPage.getSiteId(),cmsPage.getPageWebPath()));
     }
 }

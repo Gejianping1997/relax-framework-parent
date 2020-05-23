@@ -1,5 +1,6 @@
 package com.relax.service.managecms.dao;
 
+import com.relax.framework.domain.cms.CmsPage;
 import com.relax.framework.domain.cms.CmsSite;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
