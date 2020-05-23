@@ -2,14 +2,18 @@ package com.relax.service.managecms.service;
 
 import com.relax.framework.domain.cms.CmsPage;
 import com.relax.framework.domain.cms.request.QueryPageRequest;
+import com.relax.framework.domain.cms.response.CmsPageResult;
 import com.relax.framework.model.response.CommonCode;
 import com.relax.framework.model.response.QueryResponseResult;
 import com.relax.framework.model.response.QueryResult;
 import com.relax.service.managecms.dao.CmsPageRepository;
+import jdk.nashorn.internal.runtime.options.Option;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 /**
  * @author Gejianping
@@ -78,5 +82,14 @@ public class CmsPageService {
 
         QueryResponseResult<CmsPage> queryResponseResult = new QueryResponseResult<CmsPage>(CommonCode.SUCCESS,queryResult);
         return queryResponseResult;
+    }
+
+    public CmsPageResult insertCmsPage(CmsPage cmsPage){
+        Optional<CmsPage> cmsPageExist = cmsPageRepository.findOne(Example.of(cmsPage));
+        if (cmsPageExist != null){
+            return new CmsPageResult(CommonCode.FAIL,null);
+        }
+        cmsPageRepository.insert(cmsPage);
+        return new CmsPageResult(CommonCode.SUCCESS,cmsPage);
     }
 }

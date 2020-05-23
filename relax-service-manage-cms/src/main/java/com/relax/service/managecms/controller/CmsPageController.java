@@ -1,6 +1,8 @@
 package com.relax.service.managecms.controller;
 
+import com.relax.framework.domain.cms.CmsPage;
 import com.relax.framework.domain.cms.request.QueryPageRequest;
+import com.relax.framework.domain.cms.response.CmsPageResult;
 import com.relax.framework.model.response.QueryResponseResult;
 import com.relax.service.api.cms.CmsPageControllerApi;
 import com.relax.service.managecms.service.CmsPageService;
@@ -24,5 +26,11 @@ public class CmsPageController implements CmsPageControllerApi {
     @GetMapping("/queryAllCmsPageList/{pageNum}/{pageSize}")
     public QueryResponseResult queryAllCmsPageList(@PathVariable("pageNum") int pageNum,@PathVariable("pageSize") int pageSize,QueryPageRequest queryPageRequest) {
         return cmsPageService.queryAllCmsPageList(pageNum,pageSize,queryPageRequest);
+    }
+
+    @Override
+    @PostMapping("/insertCmsPage")
+    public CmsPageResult insertCmsPage(@RequestBody CmsPage cmsPage) {
+        return cmsPageService.insertCmsPage(cmsPage);
     }
 }

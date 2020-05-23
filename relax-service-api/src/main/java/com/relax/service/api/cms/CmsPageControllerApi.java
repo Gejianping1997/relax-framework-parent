@@ -1,6 +1,8 @@
 package com.relax.service.api.cms;
 
+import com.relax.framework.domain.cms.CmsPage;
 import com.relax.framework.domain.cms.request.QueryPageRequest;
+import com.relax.framework.domain.cms.response.CmsPageResult;
 import com.relax.framework.model.response.QueryResponseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -25,4 +27,12 @@ public interface CmsPageControllerApi {
             @ApiImplicitParam(name="pageSize",value = "每页记录数",required=true,paramType="path",dataType="int")
     })
     QueryResponseResult queryAllCmsPageList(int pageNum, int pageSize, QueryPageRequest queryPageRequest);
+
+    /**
+     * 添加页面
+     * @param cmsPage 要添加的页面的详细信息
+     * @return
+     */
+    @ApiOperation("添加页面")
+    CmsPageResult insertCmsPage(CmsPage cmsPage);
 }

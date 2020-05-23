@@ -21,18 +21,15 @@
     <dependencies>
         <dependency>
             <groupId>com.relax</groupId>
-            <artifactId>relax-framework-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.relax</groupId>
-            <artifactId>relax-framework-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.relax</groupId>
             <artifactId>relax-framework-model</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.relax</groupId>
+            <artifactId>relax-framework-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
