@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.Arrays;
+import java.util.Properties;
 
 /** Attention:
  * 1.UTF-8编码格式 一个汉字3个字节; 而GBK中 一个汉字2个字节. */
@@ -23,8 +24,10 @@ public class Exercise {
          *  test007();
          *  test008();
          *  test009();
+         *  test010();
          */
-        test010();
+        test011();
+        test011ForJDK7();
     }
 
     /** 一次写一个字节 */
@@ -138,8 +141,9 @@ public class Exercise {
     /** 文件复制 */
     public static void test007() throws IOException {
         FileInputStream fileInputStream10 = new FileInputStream("D:\\Dev\\Projects\\GitLab\\relax-framework-parent\\exercise\\src\\cache\\source001.jpg");
-        FileInputStream fileInputStream11 = new FileInputStream("D:\\Dev\\Projects\\GitLab\\relax-framework-parent\\exercise\\src\\cache\\source001.jpg");
         FileOutputStream fileOutputStream10 = new FileOutputStream("D:\\Dev\\Projects\\GitLab\\relax-framework-parent\\exercise\\src\\cache\\target0010.jpg");
+
+        FileInputStream fileInputStream11 = new FileInputStream("D:\\Dev\\Projects\\GitLab\\relax-framework-parent\\exercise\\src\\cache\\source001.jpg");
         FileOutputStream fileOutputStream11 = new FileOutputStream("D:\\Dev\\Projects\\GitLab\\relax-framework-parent\\exercise\\src\\cache\\target0011.jpg");
 
         long start = System.currentTimeMillis();
@@ -264,4 +268,104 @@ public class Exercise {
         fileWriter.flush();
         fileWriter.close();
     }
+
+    /** 在JDK1.7之前使用 try catch finally 处理流中的异常
+     *  格式:
+     *      try {
+     *          可能会产出异常的代码
+     *      } catch(异常类变量类型  变量名) {
+     *          异常的处理逻辑
+     *      } finally {
+     *          一定会执行的代码
+     *          比如 资源释放等
+     *      }
+     * */
+    public static void test011() {
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter("D:\\Dev\\Projects\\GitLab\\relax-framework-parent\\exercise\\src\\cache\\test010.txt",true);
+            for (Integer i = 0;i < 10; i++){
+                fileWriter.write("EasyConnect" + i + "\r\n");
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        } finally {
+            if (fileWriter!=null){
+                try {
+                    fileWriter.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /** JDK7的新特性:
+     *  在try的后面增加一个(),在括号中可以定义流对象.
+     *  那么这个流对象的作用域就在try中有效
+     *  try中的代码执行完毕,[会自动把流对象释放],不用写finally
+     *  格式:
+     *      try(定义流对象){
+     *          可能产生异常的代码
+     *      }catch(异常类变量类型 变量名){
+     *          异常处理逻辑
+     *      }
+     * */
+    public static void test011ForJDK7() {
+        try(FileWriter fileWriter = new FileWriter("D:\\Dev\\Projects\\GitLab\\relax-framework-parent\\exercise\\src\\cache\\test010.txt",true)) {
+            for (Integer i = 0;i < 10; i++){
+                fileWriter.write("EasyConnectForJDK7" + i + "\r\n");
+            }
+        }catch (IOException e){
+            System.out.println(e);
+        }
+    }
+
+    /** JDK9的新特性
+     *  try 的前面可以定义流对象
+     *  在try后面的()中可以直接引入流对象的名称(变量名)
+     *  在try代码执行完毕之后,流对象也可以释放掉,不用写finally
+     *  格式:
+     *      A a = new A();
+     *      B b = new B();
+     *      try (a,b) {
+     *          可能会产生
+     *      } catch {
+     *
+     *      }
+     * */
+//    public static void test011ForJDK9() throws FileNotFoundException {
+//        FileInputStream fileInputStream10 = new FileInputStream("D:\\Dev\\Projects\\GitLab\\relax-framework-parent\\exercise\\src\\cache\\source001.jpg");
+//        FileOutputStream fileOutputStream10 = new FileOutputStream("D:\\Dev\\Projects\\GitLab\\relax-framework-parent\\exercise\\src\\cache\\target0010.jpg");
+//
+//        try(fileInputStream10;fileOutputStream10){
+//            /** 通过一次 读取 或 写入 多个字节 的方式进行文件的 复制 */
+//            byte[] bytes = new byte[1024];
+//            Integer len = 0;
+//            while ((len = fileInputStream10.read(bytes))!=-1){
+//                fileOutputStream10.write(bytes);
+//            }
+//        }catch (IOException e){
+//            System.out.println(e);
+//        }
+//    }
+
+    /** java.util.Properties集合 extends Hashtable<Object,Object> implements Map<k,v>
+     * Properties 类表示了一个持久的属性集。Properties 可保存在流中或从流中加载。
+     * Properties集合是唯一一个和IO流相结合的集合
+     *      可以使用Properties集合中的方法store,把集合中的临时数据,持久化写入到硬盘中存储
+     *      可以使用Properties集合中的方法load,把硬盘中的保存的文件(键值对),读取到集合中使用
+     *
+     *  属性列表中每个键值及其对应的值都是一个字符串.
+     *      Properties集合是一个双列集合,key和value默认都是字符串
+     * */
+
+    /** 使用Properties集合存储数据,遍历取出Properties集合中的数据
+     *  使用 Properties 集合的一些操作字符串的特有方法
+     *      setProperties(String key,String value)
+     * */
+    public static void test012() {
+
+    }
+
 }
